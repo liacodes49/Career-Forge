@@ -17,7 +17,7 @@ export function login(req, res) {
   const token = jwt.sign(
     { email: TEST_USER.email, name: TEST_USER.name },
     process.env.JWT_SECRET,
-    { expiresIn: "30s" }
+    { expiresIn: "2h" }
   );
 
   console.log("[INFO] POST /api/login 200 OK");

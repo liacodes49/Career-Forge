@@ -1,12 +1,14 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 async function request(path, options = {}) {
+  const { headers: extraHeaders, ...restOptions } = options;
+
   const response = await fetch(`${API_URL}${path}`, {
+    ...restOptions,
     headers: {
       "Content-Type": "application/json",
-      ...options.headers
-    },
-    ...options
+      ...extraHeaders
+    }
   });
 
   const data = await response.json().catch(() => ({}));
@@ -27,6 +29,7 @@ export function loginUser(credentials) {
 
 export function fetchTasks(token) {
   return request("/api/tasks", {
+    method: "GET",
     headers: {
       Authorization: `Bearer ${token}`
     }

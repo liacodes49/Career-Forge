@@ -1,153 +1,173 @@
-# CareerForge Day 1 V2 - The Reality Check
+# CareerForge Day 2 V2 - The System Behind The Bug
 
-## Product: Candidate Review Ops Console
+## Product: Candidate Review Ops Incident
 
 ## Core Lesson
 
-Tutorial followers change random things until the app works.
+Day 1 taught:
 
-Engineers investigate, form hypotheses, collect evidence, apply minimal fixes, and verify the result.
+> Debug with evidence.
 
-Day 1 is not a coding contest. It is a debugging investigation.
+Day 2 teaches:
 
-## Product Scenario
+> Think in consequences.
 
-You have joined a startup hiring operations team as a junior engineer.
+On Day 1, you investigated a broken system.
 
-The team uses an internal Candidate Review Ops Console to review student applicants before interview shortlisting. Reviewers log in, load candidate review items, add review notes, and mark review work complete.
+On Day 2, you will investigate how one failure spreads across a product system and creates confusing symptoms in multiple places.
 
-The console is failing during a live review window.
+## Scenario
+
+A startup hiring team is processing thousands of candidates before a hiring deadline.
+
+The internal Candidate Review Ops Console is showing inconsistent behavior.
+
+Recruiters and operators are reporting:
+
+- recruiter actions not updating correctly
+- duplicate shortlist actions
+- notification delays
+- candidate status mismatch
+- dashboard lag
+- analytics inconsistency
 
 The founder says:
 
-> "It is probably a small frontend issue. Just fix it quickly."
+> "This looks like a notification or recruiter action issue. Fix that first."
 
-Your job is not to obey that assumption. Your job is to prove what is actually broken.
+Your job is to challenge that assumption with evidence.
 
-## Student Mission
+## Student Role
 
-Run the product locally, reproduce failures, inspect frontend and backend evidence, identify root causes, apply minimal fixes, and defend your reasoning.
+You are the engineer asked to diagnose the incident and recommend what to stabilize first.
 
-You must prove:
+This is not a coding task.
 
-- what failed
-- where you looked
-- which hypotheses were wrong
-- what root causes you found
-- why your fixes work
-- how you verified the critical review workflow after fixing it
-- how you used AI without blindly trusting it
+This is not a system design essay.
 
-## Variant System
+This is an incident reasoning challenge.
 
-Your founder may assign you a private variant ID such as `D1-A`, `D1-B`, `D1-C`, `D1-D`, or `D1-E`.
+## Mission
 
-Do not assume your friend's bug is your bug.
+Use the provided evidence to produce a concise incident reasoning brief that proves:
 
-Your evidence must match your assigned variant.
-
-## What Makes This Different
-
-You do not pass Day 1 by submitting polished writing.
-
-You pass by showing evidence.
-
-Founder reviewers will check your repo, your Engineering Investigation Report, your evidence video, and your ability to answer live questions about your own work.
+- what likely failed first
+- which issues are symptoms vs root cause
+- how the failure propagated across the system
+- what you would do in the first 15 minutes
+- what you would intentionally delay
+- what tradeoff you are accepting
+- how you verified or rejected AI / founder assumptions
 
 ## Provided To Solve The Case
 
-- Broken Candidate Review Ops Console repo
-- Setup guide
-- Incident brief
-- Evidence guide
-- Backend README
-- Frontend README
-- Assigned Day 1 variant
+- Student task drop
+- System overview
+- Architecture map
+- Startup context
+- Business constraints
+- Incident timeline
+- Team roles
+- Assigned D2-A evidence pack
 
 ## Outcome Artifacts You Get
 
-- Fixed engineering repository
-- Engineering Investigation Report
-- Evidence Defense Video
-- Founder review outcome
+- Failure Propagation Analysis
+- Incident Reasoning Brief
+- Incident Prioritization Artifact
+- Systems Defense Video
 
-## Setup
+## Files Provided
 
-- [Setup Guide](./docs/setup-guide.md)
-- [Incident Brief](./docs/incident-brief.md)
-- [Evidence Guide](./docs/evidence-guide.md)
-- [Backend README](./backend/README.md)
-- [Frontend README](./frontend/README.md)
+Read the shared scenario package:
 
-## Final Submission Pack
+- [Student Task Drop](./student-instructions/student-task-drop.md)
+- [System Overview](./student-instructions/system-overview.md)
+- [Architecture Map](./student-instructions/architecture-map.md)
+- [Startup Context](./student-instructions/startup-context.md)
+- [Business Constraints](./student-instructions/business-constraints.md)
+- [Incident Timeline](./student-instructions/incident-timeline.md)
+- [Team Roles](./student-instructions/team-roles.md)
 
-Submit only these 3 items:
+Then read your assigned evidence pack:
 
-1. GitHub repo link with fixed Day 1 branch
-2. Engineering Investigation Report
-3. 3-minute Evidence Defense Video
+- [D2-A Evidence Pack](./variants/D2-A/evidence-pack.md)
 
-Founder reviewers may also run a 5-minute live viva.
+Do not assume another student's evidence is your evidence.
 
-## Branch And Commit Rules
+## Final Student Submission Pack
 
-Create a branch named:
+Submit only:
 
-```bash
-day-1-reality-check
-```
+1. Incident Reasoning Brief
+2. 4-minute System Defense Video
+3. Live Founder Viva, if scheduled
 
-Minimum 3 meaningful commits:
+Use:
 
-- one diagnosis/evidence commit
-- one fix commit
-- one verification/report commit
+- [Incident Reasoning Brief Template](./submission-templates/incident-reasoning-brief-template.md)
+- [Failure Propagation Analysis Template](./submission-templates/failure-propagation-analysis-template.md)
+- [Incident Prioritization Artifact Template](./submission-templates/incident-prioritization-artifact-template.md)
+- [Defense Video Instructions](./submission-templates/system-defense-video-guide.md)
+- [Submission Guide](./student-instructions/submission-guide.md)
 
-Good commit examples:
+## Rules
 
-- `diagnosis: capture failing candidate review request`
-- `fix: correct ops console API target`
-- `fix: handle expired reviewer session`
-- `verify: document post-fix review workflow checks`
+- Every claim must connect to evidence.
+- You must separate root cause from downstream symptoms.
+- You must evaluate at least two competing hypotheses.
+- You must give confidence level for your origin failure.
+- You must explain what to fix first and what to delay.
+- You must explain tradeoffs.
+- AI is allowed, but AI / founder assumptions must be verified.
 
-Bad commit examples:
+## Buzzword Penalty
 
-- `final`
-- `done`
-- `fixed everything`
-- `chatgpt fix`
+Architecture buzzwords without evidence reduce your score.
 
-## AI Policy
+Weak answers:
 
-AI is allowed.
+- "scale database"
+- "use microservices"
+- "fix queue"
+- "add caching"
+- "use Kubernetes"
 
-Blind AI is not.
+Strong answers explain:
 
-Your Engineering Investigation Report must include one AI verification note. If AI gives a suggestion, verify it using browser evidence, network requests, backend logs, environment files, or source code.
-
-The goal is not to avoid AI.
-
-The goal is to become the engineer who can tell when AI is guessing.
+- what evidence supports the diagnosis
+- why one symptom is downstream
+- what action reduces harm first
+- what risk remains after that action
 
 ## Pass Standard
 
-Day 1 outcomes:
+Strong Pass:
 
-- `Strong Pass`
-- `Pass`
-- `Revision Required`
-- `Incomplete`
+- identifies the likely origin failure
+- uses evidence precisely
+- separates symptoms from root cause
+- explains propagation clearly
+- prioritizes business/user harm
+- defends tradeoffs under pressure
+- challenges shallow AI/founder assumptions
 
-Hard fail conditions:
+Revision Required:
 
-- no runtime evidence
-- copied or generic report
-- cannot explain your own fix
-- final code works but root cause reasoning is fake
-- AI-generated claims with no verification
+- plausible root cause but weak evidence
+- decent chain but poor prioritization
+- generic AI/system language
+- no clear delayed-work reasoning
 
-## Day 1 Closing Realization
+Incomplete:
 
-You should finish Day 1 thinking:
+- generic architecture essay
+- no evidence ownership
+- treats first visible symptom as root cause
+- cannot defend priorities live
 
-> "I used to debug by guessing. Now I know how to prove what is broken."
+## Day 2 Closing Realization
+
+You should finish Day 2 thinking:
+
+> "A bug is not isolated. One failure can poison an entire product flow."

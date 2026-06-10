@@ -1,0 +1,1 @@
+Nisha Rao - Full Stack Engineer. Shipped full-stack projects, handled release checks, and documented production incidents. Skills: React, Node, deployment, system design, PostgreSQL.

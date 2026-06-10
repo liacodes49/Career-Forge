@@ -1,0 +1,1 @@
+Kabir Sethi - Backend Engineer. Created REST APIs, added auth middleware, and investigated server logs. Skills: Node, Express, API, logging, debugging.

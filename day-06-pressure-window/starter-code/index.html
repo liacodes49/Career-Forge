@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaunchRoom - CareerForge Day 6</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section id="briefingPage" class="page briefing-page page-active">
+        <header class="briefing-hero">
+          <div>
+            <p class="eyebrow">CareerForge Day 6</p>
+            <h1>LaunchRoom</h1>
+            <p class="hero-copy">A constrained incident command window for a live FlashCart product drop. Once you enter, the timer does not pause.</p>
+          </div>
+          <div class="lesson-panel">
+            <span>Core lesson</span>
+            <strong>Engineering is decision-making under pressure.</strong>
+          </div>
+        </header>
+
+        <main id="entryGate" class="briefing-grid">
+          <section class="briefing-section">
+            <h2>Scenario</h2>
+            <p>FlashCart is running a major limited product drop. Checkout traffic spikes, duplicate payments appear, webhooks lag, inventory mismatches surface, refunds rise, and stakeholders disagree.</p>
+            <p>You are the Incident Command Owner. Your job is not to fix everything. Your job is to protect what matters first and own the tradeoffs.</p>
+          </section>
+
+          <section class="briefing-section">
+            <h2>Before You Enter</h2>
+            <form id="entryForm" class="entry-form" novalidate>
+              <label>Full name
+                <input id="studentName" type="text" autocomplete="name" required />
+              </label>
+              <label>Email
+                <input id="studentEmail" type="email" autocomplete="email" required />
+              </label>
+              <label>Discord username
+                <input id="studentDiscord" type="text" required />
+              </label>
+              <label class="confirm-row">
+                <input id="attemptConfirm" type="checkbox" required />
+                <span>I understand this session can only be attempted once from this device.</span>
+              </label>
+              <div id="entryValidation" class="entry-validation hidden"></div>
+              <button id="enterButton" type="submit" class="primary-button">Enter Launch Room</button>
+            </form>
+          </section>
+
+          <section class="briefing-section">
+            <h2>Rules</h2>
+            <ul>
+              <li>No pause button. The countdown continues while decisions are pending.</li>
+              <li>Some prompts auto-resolve if you do not decide in time.</li>
+              <li>You only see what has happened so far.</li>
+              <li>Your reasoning, decision latency, and accepted tradeoffs are recorded.</li>
+            </ul>
+          </section>
+
+          <section class="briefing-section">
+            <h2>Decision Doctrine</h2>
+            <ul>
+              <li>Protect customer-money trust before cosmetic visibility.</li>
+              <li>Contain blast radius when root cause is incomplete.</li>
+              <li>Communicate uncertainty before silence becomes damage.</li>
+              <li>Defer work deliberately. Do not pretend everything can be solved.</li>
+            </ul>
+          </section>
+        </main>
+      </section>
+
+      <section id="commandPage" class="page command-page">
+        <header class="warbar">
+          <div class="brand-block">
+            <p class="eyebrow">FlashCart Drop Crisis</p>
+            <h1>LaunchRoom</h1>
+          </div>
+          <div class="timer-block">
+            <span>Window Remaining</span>
+          <strong id="timerDisplay">22:00</strong>
+          </div>
+          <div class="phase-block">
+            <span>Current Phase</span>
+            <strong id="phaseLabel">Phase 1: First Signals</strong>
+          </div>
+          <div id="pressureStrip" class="pressure-strip"></div>
+          <button id="endSessionButton" class="danger-button">End Session</button>
+        </header>
+
+        <main class="warroom-layout">
+          <section class="chat-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Startup War Room</h2>
+                <p>Conflicting stakeholder pressure arrives in real time.</p>
+              </div>
+              <span id="feedCount">0 messages</span>
+            </div>
+            <div id="incidentFeed" class="chat-feed" aria-live="polite"></div>
+          </section>
+
+          <aside class="right-rail">
+            <section class="metrics-panel">
+              <div class="panel-heading compact-heading">
+                <h2>Live Launch Metrics</h2>
+                <span id="metricTimestamp">T+00</span>
+              </div>
+              <div id="metricsGrid" class="metrics-grid"></div>
+            </section>
+
+            <section class="decision-panel">
+              <div class="panel-heading compact-heading">
+                <h2>Decision Console</h2>
+                <span id="decisionStatus">Awaiting prompt</span>
+              </div>
+
+              <div id="decisionPrompt" class="decision-prompt empty">
+                <p class="empty-state">No active decision yet. Watch the room and be ready.</p>
+              </div>
+
+              <div class="decision-history">
+                <h3>Decision Timeline</h3>
+                <div id="decisionHistory"></div>
+              </div>
+            </section>
+          </aside>
+        </main>
+      </section>
+
+      <section id="reportPage" class="page report-page">
+        <header class="report-header">
+          <div>
+            <p class="eyebrow">Generated from LaunchRoom simulation decisions.</p>
+            <h1>CareerForge Day 6 Launch Incident Report</h1>
+          </div>
+          <div class="report-actions">
+            <button id="copyMarkdownButton" class="primary-button">Copy Markdown</button>
+            <button id="downloadMarkdownButton" class="secondary-button">Download Markdown</button>
+            <button id="printButton" class="secondary-button">Print Report</button>
+          </div>
+        </header>
+        <main id="reportContent" class="report-content"></main>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
